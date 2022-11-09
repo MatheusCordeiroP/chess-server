@@ -21,22 +21,32 @@
       <main class="join-main">
         <form action="chat.html">
           <div class="form-control">
-            <label for="username">Room Name</label>
+            <label for="room-name">Room Name</label>
             <input
               type="text"
               name="room-name"
               id="room-name"
-              placeholder="Enter room name..."
+              placeholder="Room Name"
               required
             />
           </div>
           <div class="form-control">
-            <label for="username">Room Password</label>
+            <label for="room-password">Room Password</label>
             <input
-              type="text"
+              type="password"
               name="password"
               id="password"
-              placeholder="Enter password..."
+              placeholder="Room Password (optional)"
+            />
+          </div>
+          <div class="form-control">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Username"
+              required
             />
           </div>
           <button type="submit" class="btn">Join Chat</button>
