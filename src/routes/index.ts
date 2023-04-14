@@ -1,7 +1,9 @@
 import express, { Router, Request, Response } from 'express';
 
 // Routes
+import game from './game';
 import test from './test';
+import user from './user';
 
 const app = express();
 const router = Router();
@@ -14,6 +16,8 @@ router.get('/', (request: Request, response: Response) => {
 });
 
 app.use('/', router);
-app.use('/api/v1/test', test);
+app.use('/api/game', game);
+app.use('/api/test', test);
+app.use('/api/user', user);
 
 export default app;

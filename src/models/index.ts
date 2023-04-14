@@ -1,7 +1,13 @@
 import Sequelize from 'sequelize';
-import config from '../config/config';
 import { DatabaseInterface } from '../typings/DatabaseInterface';
 import { singleton } from '../helpers/singleton';
+
+import { GameNotationFactory } from './game_notations';
+import { GameRoomFactory } from './game_rooms';
+import { UserAccountFactory } from './user_accounts';
+import { UserScoreFactory } from './user_scores';
+
+const config = require('../config/config');
 
 const createModels = (sequelizeConfig: any): DatabaseInterface => {
   const { database, username, password } = sequelizeConfig;
@@ -15,6 +21,11 @@ const createModels = (sequelizeConfig: any): DatabaseInterface => {
   const database_: DatabaseInterface = {
     sequelize,
     Sequelize,
+
+    GameNotation: GameNotationFactory(sequelize, Sequelize),
+    GameRoom: GameRoomFactory(sequelize, Sequelize),
+    UserAccount: UserAccountFactory(sequelize, Sequelize),
+    UserScore: UserScoreFactory(sequelize, Sequelize),
   };
 
   for (const key in database_) {

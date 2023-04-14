@@ -1,9 +1,9 @@
-import express, { Router, Request, Response } from 'express';
+import { Router, Request, Response } from 'express';
 
-const router = express.Router();
+const router = Router();
 
 router.get('/', (request: Request, response: Response) =>
-  response.json({ ok: true })
+  response.json({ testing: true, ok: true })
 );
 
 export default router;
